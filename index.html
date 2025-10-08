@@ -15,6 +15,35 @@
 
 <body>
 
+  <!-- User Options Dropdown -->
+  <div class="top-right-dropdown">
+    <div class="dropdown">
+      <button class="btn custom-btn dropdown-toggle" type="button" id="userOptionsDropdown" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">menu</button>
+      <div class="dropdown-menu dropdown-menu-right p-4" aria-labelledby="userOptionsDropdown">
+        <!-- API Key Form -->
+        <form id="apiKeyForm" class="mb-3">
+          <div class="form-group mb-2">
+            <label for="apiKey">API Key</label>
+            <input type="text" class="form-control" id="apiKey" placeholder="Enter your API key">
+          </div>
+          <button type="submit" class="btn custom-btn btn-sm btn-block">Save API Key</button>
+        </form>
+        
+        <hr class="my-3">
+        
+        <!-- Buttons -->
+         <p>Status</p>
+        <button type="button" class="btn custom-btn btn-block mb-2" id="reconnectBtn">
+          Reconnect
+        </button>
+        <button type="button" class="btn custom-btn btn-block" id="logoutBtn">
+          Log Out
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div class="container-fluid py-4">
     <h1 class="text-center mb-4">Pastebin</h1>
     <div class="virtual-board flex-column align-items-center">
