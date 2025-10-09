@@ -1,11 +1,10 @@
 //prevents dropdown from closing
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.dropdown-menu form').forEach(function (form) {
-    form.addEventListener('submit', function (e) {
-      e.stopPropagation();
-      // Your validation logic here (optional)
-      e.preventDefault();
+    form.addEventListener('click', function (e) {
+      e.stopPropagation(); // hindrar dropdown från att stängas
     });
+
   });
 
   // email o pass check
@@ -59,13 +58,39 @@ async function loginUser(email, password) {
       return null;
     }
     const data = await response.json();
-    if (data.token) {
-      localStorage.setItem('authToken', data.token);
+    if (data.accessToken && data.refreshToken) {
+      localStorage.setItem('authToken', data.accessToken);
+      localStorage.setItem('refreshToken', data.refreshToken);
       console.log('Login successful');
     }
     return data;
   } catch (error) {
     console.error('Error during login:', error);
+    return null;
+  }
+}
+
+async function refreshAccessToken() {
+  const refreshToken = localStorage.getItem('refreshToken');
+  if (!refreshToken) return null;
+
+  try {
+    const response = await fetch(`${apiUrl}/refresh`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: refreshToken })
+    });
+
+    if (!response.ok) throw new Error('Refresh failed');
+
+    const data = await response.json();
+    if (data.accessToken) {
+      localStorage.setItem('authToken', data.accessToken);
+      return data.accessToken;
+    }
+    return null;
+  } catch (error) {
+    console.error('Error refreshing token: ', error);
     return null;
   }
 }

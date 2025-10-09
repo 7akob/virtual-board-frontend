@@ -19,21 +19,14 @@
   <div class="top-right-dropdown">
     <div class="dropdown">
       <button class="btn custom-btn dropdown-toggle" type="button" id="userOptionsDropdown" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">menu</button>
+        aria-haspopup="true" aria-expanded="false">Menu</button>
       <div class="dropdown-menu dropdown-menu-right p-4" aria-labelledby="userOptionsDropdown">
-        <!-- API Key Form -->
-        <form id="apiKeyForm" class="mb-3">
-          <div class="form-group mb-2">
-            <label for="apiKey">API Key</label>
-            <input type="text" class="form-control" id="apiKey" placeholder="Enter your API key">
-          </div>
-          <button type="submit" class="btn custom-btn btn-sm btn-block">Save API Key</button>
-        </form>
-        
+
+
         <hr class="my-3">
-        
+
         <!-- Buttons -->
-         <p>Status</p>
+        <p>Status: <span id="connectionStatus" class="badge badge-danger">Disconnected</span></p>
         <button type="button" class="btn custom-btn btn-block mb-2" id="reconnectBtn">
           Reconnect
         </button>
@@ -64,13 +57,14 @@
 
         <!-- Recieve message -->
         <div class="card mb-3">
-          <div class="card-body" id="messagesContainer"">
-            <p id="out">out msg hit</p>
-            <p id="err">Error msg hit</p>
+          <div class="card-body" id="messagesContainer">
+            <p id="out" class="badge font-monospace mb-1">Välkommen till Paste Bin!</p>
+            <p id="err" class="badge badge-danger font-monospace mb-1"></p>
+
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 
   <!-- Optional JavaScript -->
