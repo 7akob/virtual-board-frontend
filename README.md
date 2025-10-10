@@ -6,8 +6,8 @@ In the future these apps could be merged for a multi-functional app.
 
 ## Set up for backend:
 Theese are the ready-made backend apps that will make the app functional.
-[WebSocket](https://github.com/7akob/pastebin-websocket)
-[LoginAPI](https://github.com/7akob/viritual-board-login)
+- [WebSocket](https://github.com/7akob/pastebin-websocket)
+- [LoginAPI](https://github.com/7akob/viritual-board-login)
 
 ## Color palette:
 - **Background:** #1C1C1C (soft black)
